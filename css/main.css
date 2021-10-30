@@ -947,6 +947,7 @@ header .container .mega-menu .links li a i {
   top: 0;
   height: 100%;
   background-color: var(--main-color);
+  transition: 2s;
 }
 /* End Skills Section */
 
@@ -1581,13 +1582,13 @@ footer .container .box .social li {
 }
 
 footer .container .box .social .facebook:hover {
-  background-color: var(--main-color);
+  background-color: #1877f2;
 }
 footer .container .box .social .twitter:hover {
   background-color: #1da1f2;
 }
 footer .container .box .social .youtube:hover {
-  background-color: red;
+  background-color: #ff0000;
 }
 footer .container .box .social li i {
   color: #b9b9b9;
