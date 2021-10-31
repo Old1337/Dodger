@@ -1168,6 +1168,7 @@ header .container .mega-menu .links li a i {
   background-color: #ececec;
   padding-top: 20px;
   padding-bottom: 100px;
+  position: relative;
 }
 .pricing .container {
   display: grid;
@@ -1675,5 +1676,34 @@ footer .copyright {
   align-items: center;
   color: #777;
   font-size: 20px;
+}
+
+.spikes {
+  position: relative;
+}
+.spikes::after {
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(134deg, white 25%, transparent 25%),
+    linear-gradient(231deg, white 25%, transparent 25%);
+  width: 100%;
+  height: 30px;
+  background-size: 25px;
+  z-index: 1;
+}
+.dots {
+  background-image: url(../imgs/dots.png);
+  width: 205px;
+  height: 190px;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.dots.right {
+  left: 0;
+  bottom: 200px;
+}
+.dots.left {
+  right: 0px;
+  top: 200px;
 }
 /* End Footer Section */
