@@ -1,17 +1,31 @@
-let porgrass = document.querySelectorAll(".prograss span");
+let skSection = document.querySelector(".skills");
+let prograssSpans = document.querySelectorAll(".prograss span");
+
+let featuresS = document.querySelector(".features");
+let scrollS = document.querySelector(".up");
 
 window.onscroll = function () {
-  if (scrollY >= 7730) {
-    porgrass.forEach((element) => {
-      element.style.width = element.getAttribute("data");
+  if (window.scrollY >= skSection.offsetTop) {
+    prograssSpans.forEach((span) => {
+      span.style.width = span.getAttribute("data");
     });
   }
+  scrollY >= featuresS.offsetTop
+    ? scrollS.classList.add("active")
+    : scrollS.classList.remove("active");
+};
+
+scrollS.onclick = function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 };
 
 let numbers = document.querySelectorAll(".statistics .number");
-
+let staSection = document.querySelector(".statistics");
 setInterval(function () {
-  if (scrollY >= 12496) {
+  if (scrollY >= staSection.offsetTop - 230) {
     numbers.forEach((element) => {
       if (+element.innerHTML >= element.getAttribute("value")) {
         clearInterval();

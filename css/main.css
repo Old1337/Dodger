@@ -1706,4 +1706,20 @@ footer .copyright {
   right: 0px;
   top: 200px;
 }
+.up {
+  background-color: var(--main-color);
+  position: fixed;
+  right: -50px;
+  bottom: 20px;
+  font-size: 25px;
+  padding: 8px;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--main-transition);
+  z-index: 3;
+}
+.up.active {
+  right: 20px;
+}
 /* End Footer Section */
