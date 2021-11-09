@@ -10,6 +10,7 @@ window.onscroll = function () {
       span.style.width = span.getAttribute("data");
     });
   }
+
   scrollY >= featuresS.offsetTop
     ? scrollS.classList.add("active")
     : scrollS.classList.remove("active");
