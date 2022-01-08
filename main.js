@@ -57,7 +57,7 @@ let counter = setInterval(() => {
   document.querySelector(".events .seconds").innerHTML =
     seconds < 10 ? `0${seconds}` : seconds;
 
-  if (dateDiff < 0) {
+  if (dateDiff <= 0) {
     clearInterval(counter);
   }
 }, 1000);
