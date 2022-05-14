@@ -1,10 +1,10 @@
-let skSection = document.querySelector(".skills");
-let prograssSpans = document.querySelectorAll(".prograss span");
+const skSection = document.querySelector(".skills");
+const prograssSpans = document.querySelectorAll(".prograss span");
 
-let featuresS = document.querySelector(".features");
-let scrollS = document.querySelector(".up");
+const featuresS = document.querySelector(".features");
+const scrollS = document.querySelector(".up");
 
-window.onscroll = function () {
+window.addEventListener("scroll", () => {
   if (window.scrollY >= skSection.offsetTop) {
     prograssSpans.forEach((span) => {
       span.style.width = span.getAttribute("data");
@@ -14,39 +14,45 @@ window.onscroll = function () {
   scrollY >= featuresS.offsetTop
     ? scrollS.classList.add("active")
     : scrollS.classList.remove("active");
-};
+});
 
-scrollS.onclick = function () {
+scrollS.onclick = () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 };
 
-let numbers = document.querySelectorAll(".statistics .number");
-let staSection = document.querySelector(".statistics");
-setInterval(function () {
-  if (scrollY >= staSection.offsetTop - 230) {
-    numbers.forEach((element) => {
-      if (+element.innerHTML >= element.getAttribute("value")) {
-        clearInterval();
-      } else {
-        element.innerHTML++;
-      }
+const numbers = document.querySelectorAll(".statistics .number");
+const staSection = document.querySelector(".statistics");
+
+window.addEventListener("scroll", () => {
+  if (scrollY >= staSection.offsetTop) {
+    numbers.forEach((number) => {
+      const target = number.getAttribute("value");
+      const increaseNum = setInterval(() => {
+        if (number.textContent !== target) {
+          number.textContent++;
+        } else {
+          clearInterval(increaseNum);
+        }
+      }, 5000 / target);
     });
   }
-}, 1);
+});
 
-let countDownDate = new Date("Dec 31, 2022 23:59:59").getTime();
+const countDownDate = new Date("Dec 31, 2022 23:59:59").getTime();
 
-let counter = setInterval(() => {
-  let dateNow = new Date().getTime();
-  let dateDiff = countDownDate - dateNow;
+const counter = setInterval(() => {
+  const dateNow = new Date().getTime();
+  const dateDiff = countDownDate - dateNow;
 
-  let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
+  const days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
 
   document.querySelector(".events .days").innerHTML =
     days < 10 ? `0${days}` : days;
